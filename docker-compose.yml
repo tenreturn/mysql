@@ -1,0 +1,21 @@
+version : '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: vayoApp
+    ports:
+      - 3306:3306
+    volumes:
+      - /Users/IO/Dbyo:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
